@@ -45,7 +45,7 @@ fi
 
 msg_info "Testando conexão com os servidores do Arch..."
 if ! ping -c 1 archlinux.org &> /dev/null; then
-    msg_erro "Sem conexão com a internet. Verifique sua rede na VM e tente de novo."
+    msg_erro "Sem conexão com a internet. Verifique sua rede e tente de novo."
 fi
 msg_ok "Conexão com a internet confirmada."
 
