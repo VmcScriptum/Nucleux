@@ -1,0 +1,11 @@
+base-devel
+git
+curl
+wget
+zsh
+visual-studio-code-bin
+docker
+docker-compose
+ttf-fira-code
+ttf-jetbrains-mono-nerd
+noto-fonts-emoji
