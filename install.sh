@@ -88,5 +88,5 @@ if [ -f "programas-nucleux.txt" ]; then
     yay -S --needed --noconfirm $(sed 's/#.*//' "programas-nucleux.txt")
     msg_ok "Todos os pacotes instalados!"
 else
-    msg_erro "Arquivo 'programas-nucleux.txt' não encontrado!"
+    msg_erro "Pasta de programs não encontrado!"
 fi
