@@ -3,7 +3,7 @@ git
 curl
 wget
 zsh
-visual-studio-code-bin
+neovim
 docker
 docker-compose
 ttf-fira-code
