@@ -77,7 +77,7 @@ if ! command -v yay &> /dev/null; then
     
     msg_ok "Gerenciador 'yay' instalado com sucesso!"
 else
-    msg_ok "O 'yay' já está instalado no sistema. Pulando etapa."
+    msg_ok "O 'yay' já está instalado no sistema. prosseguindo com a etapa."
 fi
 
 if [ -f "programas-nucleux.txt" ]; then
