@@ -21,7 +21,7 @@ print_logo() {
       (|     | )     ██║╚██╗██║██║   ██║██║     ██║     ██╔══╝  ██║   ██║ ██╔██╗ 
      /'\_   _/`\     ██║ ╚████║╚██████╔╝╚██████╗███████╗███████╗╚██████╔╝██╔╝ ██╗
      \___)=(___/     ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
-                                  [ Automated Dev OS ]
+                                  [ From programmers to programmers]
 EOF
     echo -e "${RESET}"
 }
@@ -81,4 +81,16 @@ if ! command -v yay &> /dev/null; then
     msg_ok "Gerenciador 'yay' instalado com sucesso!"
 else
     msg_ok "O 'yay' já está instalado no sistema. Pulando etapa."
+fi
+
+LISTA_PACOTES="pkgs-dev.txt"
+
+if [ -f "$LISTA_PACOTES" ]; then
+    msg_info "Lendo lista de pacotes em '$LISTA_PACOTES'..."
+ 
+    yay -S --needed --noconfirm $(sed 's/#.*//' "$LISTA_PACOTES")
+    
+    msg_ok "Todos os pacotes de desenvolvimento foram instalados!"
+else
+    msg_erro "Arquivo '$LISTA_PACOTES' não encontrado na pasta do projeto!"
 fi
