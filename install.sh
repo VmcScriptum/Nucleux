@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
-
-
 set -e
-
 
 VERDE='\033[0;32m'
 VERMELHO='\033[0;31m'
@@ -63,6 +59,7 @@ fi
 msg_ok "Ambiente verificado com sucesso. Pronto para iniciar a instalação."
 
 msg_info "Verificando se o 'yay' já está instalado..."
+sudo pacman -S --needed base-devel git --noconfirm
 
 if ! command -v yay &> /dev/null; then
     msg_info "O 'yay' não foi encontrado. Iniciando compilação automática..."
