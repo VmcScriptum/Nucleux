@@ -81,7 +81,7 @@ else
 fi
 
 if [ -f "programas-nucleux.txt" ]; then
-    msg_info "Lendo lista de pacotes iniciais"
+    msg_info "Lendo lista de programas/pacotes iniciais"
     yay -S --needed --noconfirm $(sed 's/#.*//' "programas-nucleux.txt")
     msg_ok "Todos os pacotes instalados!"
 else
