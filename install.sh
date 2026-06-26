@@ -83,14 +83,10 @@ else
     msg_ok "O 'yay' já está instalado no sistema. Pulando etapa."
 fi
 
-LISTA_PACOTES="pkgs-dev.txt"
-
-if [ -f "$LISTA_PACOTES" ]; then
-    msg_info "Lendo lista de pacotes em '$LISTA_PACOTES'..."
- 
-    yay -S --needed --noconfirm $(sed 's/#.*//' "$LISTA_PACOTES")
-    
-    msg_ok "Todos os pacotes de desenvolvimento foram instalados!"
+if [ -f "programas-nucleux.txt" ]; then
+    msg_info "Lendo lista de pacotes em 'pkgs-dev.txt'..."
+    yay -S --needed --noconfirm $(sed 's/#.*//' "programas-nucleux.txt")
+    msg_ok "Todos os pacotes instalados!"
 else
-    msg_erro "Arquivo '$LISTA_PACOTES' não encontrado na pasta do projeto!"
+    msg_erro "Arquivo 'programas-nucleux.txt' não encontrado!"
 fi
