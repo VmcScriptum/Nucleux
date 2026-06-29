@@ -87,3 +87,26 @@ if [ -f "programas-nucleux.txt" ]; then
 else
     msg_erro "Pasta de programs não encontrado!"
 fi
+
+if [ -f "hyprland.txt" ]; then
+    msg_info "Instalando Hyprland e dependências estruturais..."
+    
+
+    yay -S --needed --noconfirm $(sed 's/#.*//' "hyprland.txt")
+    
+    msg_ok "Hyprland instalado com sucesso!"
+    msg_info "Ativando o gerenciador de login (SDDM)..."
+    sudo systemctl enable sddm
+else
+
+    msg_error "O arquivo hyprland.txt não foi encontrado!"
+fi
+
+if grep -q "hypervisor" /proc/cpuinfo; then
+    msg_info "VM detectada! Aplicando patch anti-tela-preta do Wayland..."
+    echo "WLR_NO_HARDWARE_CURSORS=1" | sudo tee -a /etc/environment > /dev/null
+fi
+
+msg_ok "Instalação do Nucleux 100% finalizada!"
+
+sudo reboot
