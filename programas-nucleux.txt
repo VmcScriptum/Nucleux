@@ -9,3 +9,5 @@ docker-compose
 ttf-fira-code
 ttf-jetbrains-mono-nerd
 noto-fonts-emoji
+lazygit
+brave-bin
