@@ -110,3 +110,27 @@ fi
 msg_ok "Instalação do Nucleux 100% finalizada!"
 
 sudo reboot
+
+# =================================================
+# FASE 4.5: APLICANDO O VISUAL (DOTFILES)
+# =================================================
+
+# Identifica o usuário comum para não dar erro de permissão do root
+REAL_USER=$Nucleux
+USER_HOME="/home/$nucleux-user"
+
+if [ -d "dotfiles" ]; then
+    msg_info "Aplicando o visual do Nucleux..."
+    
+    # Garante que a pasta .config do usuário existe
+    mkdir -p "$USER_HOME/.config"
+    
+    # Copia tudo que está na sua pasta dotfiles para o .config do sistema
+    cp -r dotfiles/* "$USER_HOME/.config/"
+    
+    # Corrige o dono dos arquivos para o seu usuário conseguir mexer
+    chown -R "$REAL_USER":"$REAL_USER" "$USER_HOME/.config"
+    msg_ok "Visual aplicado com sucesso!"
+else
+    msg_error "A pasta 'dotfiles' com as configurações não foi encontrada!"
+fi
